@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculatrice Bootstrap</title>
+    <!-- Inclure le lien vers la bibliothèque Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    .col {
+        margin: 1%;
+    }
+</style>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-body bg-success">
+                    <input type="text" id="result" class="form-control text-right mb-2" readonly>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="racine()">√</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="cos()">Cos</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="sin()">Sin</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="pi()">&uArr;</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('7')">7</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('8')">8</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('9')">9</button></div>
+                        <div class="col"><button class="btn btn-primary btn-block" onclick="appendToResult('+')">+</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('4')">4</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('5')">5</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('6')">6</button></div>
+                        <div class="col"><button class="btn btn-primary btn-block" onclick="appendToResult('-')">-</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('1')">1</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('2')">2</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('3')">3</button></div>
+                        <div class="col"><button class="btn btn-primary btn-block" onclick="appendToResult('*')">*</button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button class="btn btn-danger btn-block" onclick="clearResult()">C</button></div>
+                        <div class="col"><button class="btn btn-secondary btn-block" onclick="appendToResult('0')">0</button></div>
+                        <div class="col"><button class="btn btn-primary btn-block" onclick="calculate()">=</button></div>
+                        <div class="col"><button class="btn btn-primary btn-block" onclick="appendToResult('/')">/</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        const result = document.getElementById('result');
+        const btn = document.getElementsByClassName('.btn')
+        function appendToResult(values) {
+            result.value += values;
+        }
+        function racine() {
+            result.value = Math.sqrt(result.value);
+        }
+        function cos() {
+            result.value = Math.cos(result.value);
+        }
+        function sin() {
+            result.value = Math.sin(result.value);
+        }
+        function pi() {
+            result.value = 22/7;
+        }
+
+        function calculate() {
+            result.value = eval(result.value);
+        }
+        function clearResult() {
+            result.value = "";
+        }
+
+    </script>
+</div>
+</body>
+</html>

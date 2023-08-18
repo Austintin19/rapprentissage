@@ -1,0 +1,30 @@
+Today(17 Août)
+Learning js (Objet & Events & Function)
+
+===> Objet 
+---Create---  
+
+const nom-de-objet = 
+{
+	propriete = "valeur",
+	propriete = "valeur", 
+	...
+
+	methode = function() {
+	  	
+		     return this.propriete;
+		}
+	methode = function() {
+	  	
+		     return this.propriete;
+		}
+	...
+}
+
+---use objet---
+
+* use proprietes
+	nom-de-objet.propriete
+* use methode
+	nom-de-objet.methode()
+

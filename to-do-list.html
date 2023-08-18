@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-do-list</title>
+</head>
+<body>
+<h1>To-Do List</h1>
+<input type="text" id="taskInput" placeholder="Nouvelle tâche">
+<button id="addButton">Ajouter</button>
+<ul id="taskList"></ul>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var taskInput = document.getElementById('taskInput');
+        var addButton = document.getElementById('addButton');
+        var taskList = document.getElementById('taskList');
+
+        addButton.addEventListener('click', function() {
+            var taskText = taskInput.value.trim();
+            if (taskText !== '') {
+                var li = document.createElement('li');
+                li.textContent = taskText;
+                taskList.appendChild(li);
+                taskInput.value = '';
+            }
+        });
+
+        taskList.addEventListener('click', function(event) {
+            var target = event.target;
+            if (target.tagName === 'LI') {
+                target.classList.toggle('completed');
+            }
+        });
+    });
+</script>
+
+<style>
+    .completed {
+        text-decoration: line-through;
+    }
+</style>
+
+</body>
+</html>

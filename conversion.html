@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convertisseur de Devises</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="col-md-4 offset-md-4 mt-4">
+    <div class="card p-4">
+        <h1 class="h1 text-center">Convertisseur de Devises</h1>
+        <div class="col form-group">
+            <label for="amount">Montant en USD :</label>
+            <input type="number" id="amount" class="form-control" placeholder="Entrez le montant en USD">
+        </div>
+
+        <div class="col form-group">
+            <label for="currency">Devise :</label>
+            <select id="currency" class="form-control">
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="JPY">JPY</option>
+            <!-- Ajoutez d'autres devises ici -->
+            </select>
+        </div>
+        <div class="form-class text-center m-1">
+            <h4 id="result"></h4>
+        </div>
+       <div class="text-center">
+           <button class="btn btn-success" id="convertButton">Convertir</button>
+       </div>
+
+
+    </div>
+</div>
+<script>
+    const input = document.getElementById('amount');
+    const device = document.getElementById('currency');
+    const result = document.getElementById('result');
+    const convertButton = document.getElementById('convertButton')
+    convertButton.addEventListener('click', function () {
+        if(device.value === 'EUR'){
+            const news = input.value * 1.09;
+            result.innerHTML = '<strong> Le montant est de ' + news + ' EUR </strong>';
+        }
+        if (device.value === 'GBP'){
+            const nws = input.value * 1.18;
+            result.innerHTML = '<strong> Le montant est de ' + nws + ' GBP </strong>';
+        }
+        if(device.value === 'JPY'){
+            const nes = input.value *  0.0094;
+            result.innerHTML = '<strong> Le montant est de ' + nes + ' JPY </strong>';
+        }
+    })
+
+</script>
+</body>
+</html>
